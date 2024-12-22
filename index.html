@@ -190,18 +190,17 @@
             }
 
             async searchAndDisplayObjects(searchTerm) {
-                try {
-                    this.searchStatus.innerHTML = '<span class="loading">⟳</span> Searching...';
-                    this.objectGrid.innerHTML = '';
-                    
-                    let groupedObjects = {};
-                    let matchCount = 0;
-                    this.processedBytes = 0;
-
-                    const response = await fetch('https://media.githubusercontent.com/media/Vopori/objdatabase/main/consolidated_objects.json');
-                    if (!response.ok) {
-                        throw new Error(`HTTP error! status: ${response.status}`);
-                    }
+   try {
+       this.searchStatus.innerHTML = '<span class="loading">⟳</span> Searching...';
+       this.objectGrid.innerHTML = '';
+       
+       let groupedObjects = {};
+       let matchCount = 0;
+       this.processedBytes = 0;
+        const response = await fetch('https://media.githubusercontent.com/media/Vopori/objdatabase/main/consolidated_objects.json');
+       if (!response.ok) {
+           throw new Error(`HTTP error! status: ${response.status}`);
+       }
                     
                     this.totalBytes = parseInt(response.headers.get('content-length'));
 
